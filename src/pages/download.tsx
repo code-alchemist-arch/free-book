@@ -1,32 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Button, Typography } from "@mui/material";
-import { StaticImage } from "gatsby-plugin-image";
+import { Button, Typography } from '@mui/material';
+import { StaticImage } from 'gatsby-plugin-image';
 
-import * as stylesDashboard from "../styles/dashboard.module.css";
-import DownloadForm from "../components/downloadForm";
-
-interface GeneralTypographyProps {
-  text: string;
-  fontSize: any;
-}
-
-const GeneralTypography = ({ text, fontSize }: GeneralTypographyProps) => {
-  return (
-    <Typography
-      variant="inherit"
-      sx={{
-        fontWeight: 400,
-        fontSize,
-        fontFamily: "Crimson Text",
-        textAlign: "center",
-        maxWidth: "100%"
-      }}
-    >
-      {text}
-    </Typography>
-  );
-}
+import * as stylesDashboard from '../styles/dashboard.module.css';
+import DownloadForm from '../components/downloadForm';
+import GlobalTypography from '../components/common/GlobalTypography';
 
 export default function Download() {
   const [isDownloadFormOpen, setIsDownloadFormOpen] = useState(false);
@@ -59,7 +38,7 @@ export default function Download() {
               fontStretch: 97
             }}
           >
-            UltraHandy
+            {'UltraHandy'}
           </Typography>
           <Typography
             variant="subtitle1"
@@ -75,30 +54,18 @@ export default function Download() {
               fontFamily: "Crimson Pro"
             }}
           >
-            Hand in Hand Partner for your Home Improvement
+            {'Hand in Hand Partner for your Home Improvement'}
           </Typography>
         </div>
       </div>
       <div className={stylesDashboard.content}>
-        <GeneralTypography
+        <GlobalTypography
           text="Six Amazing ways to Improve your Household with this FREE E-Book. Keep place of the House organize without spending much."
-          fontSize={{
-            xl: "40px",
-            lg: "30px",
-            md: "24px",
-            sm: "20px",
-            xs: "12px",
-          }}
+          fontSizeMode="default"
         />
-        <GeneralTypography
+        <GlobalTypography
           text="You’ll discover how to “Do It Yourself” Improvement at home in many ways. What are you waiting for Grab this FREE E-Book offers now!"
-          fontSize={{
-            xl: "40px",
-            lg: "30px",
-            md: "24px",
-            sm: "20px",
-            xs: "12px",
-          }}
+          fontSizeMode="default"
         />
         <StaticImage
           className={stylesDashboard.bookList}
@@ -142,7 +109,7 @@ export default function Download() {
             }}
             onClick={openDownloadForm}
           >
-            Download
+            {'Download'}
           </Button>
           <StaticImage
             className={stylesDashboard.arrow}
@@ -150,25 +117,13 @@ export default function Download() {
             alt="Arrow Left"
           />
         </div>
-        <GeneralTypography
+        <GlobalTypography
           text="Note: Due to Limited Time offer, we will only make it available for a short while. So “Download It Now!!!!"
-          fontSize={{
-            xl: "48px",
-            lg: "36px",
-            md: "28.8px",
-            sm: "24px",
-            xs: "14.4px",
-          }}
+          fontSizeMode="medium"
         />
-        <GeneralTypography
+        <GlobalTypography
           text="2022 All Rights Reserved."
-          fontSize={{
-            xl: "24px",
-            lg: "18px",
-            md: "14.4px",
-            sm: "12px",
-            xs: "7.2px",
-          }}
+          fontSizeMode="small"
         />
       </div>
       <DownloadForm

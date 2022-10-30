@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
@@ -12,6 +12,9 @@ const Wrapper = styled('div')(() => ({
 }));
 
 function Thankyou() {
+  if (typeof window === 'undefined')
+    return null;
+
   const { thanksText } = window.history?.state;
 
   return (

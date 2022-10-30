@@ -13,8 +13,11 @@ interface ActiveCampaignFormProps {
 }
 
 export default function ActiveCampaignForm( props: ActiveCampaignFormProps = { thanksText: '' }) {
-  const { thanksText } = props;
+  if (typeof window === 'undefined') {
+    return null;
+  }
 
+  const { thanksText } = props;
   const onSubmit = (event) => {
     event.preventDefault();
     
@@ -25,7 +28,12 @@ export default function ActiveCampaignForm( props: ActiveCampaignFormProps = { t
       body: data,
       mode: 'no-cors',
     })
-    .then(response => {
+    .then(() => {
+      // tracking facebook pixel event
+      if (window.fbq != null) {
+        window.fbq('track', 'Subscribe', {currency: "USD", value: 0.00});
+      }
+
       navigate('/thank-you', {
         state: {
           thanksText
